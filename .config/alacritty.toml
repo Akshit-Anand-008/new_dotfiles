@@ -1,0 +1,30 @@
+[terminal.shell]
+program = "/run/current-system/sw/bin/zsh"
+args = ["-l"]
+[colors.primary]
+background = "#000000"
+[selection]
+save_to_clipboard = true
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+[font]
+size = 15
+[font.normal]
+family = "JetBrainsMono"
+style = "Regular"
+[font.bold]
+family = "JetBrainsMono"
+style = "Bold"
+[font.italic]
+family = "JetBrainsMono"
+style = "Italic"
+[font.bold_italic]
+family = "JetBrainsMono"
+style = "Bold Italic"
