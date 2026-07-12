@@ -145,6 +145,7 @@ fonts.packages = with pkgs; [
    gnumake
    cmake
    gcc
+   gdb
    gzip
    zip
    unzip
