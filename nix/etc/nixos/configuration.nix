@@ -124,6 +124,7 @@ fonts.packages = with pkgs; [
       stow
       zathura
       btop
+      nodejs
       tree-sitter
       lua-language-server
       (texlive.combine { inherit (texlive) scheme-small latexmk amsmath biber; })

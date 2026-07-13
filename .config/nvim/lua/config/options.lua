@@ -1,9 +1,7 @@
 local opt = vim.opt
 
 -- Global Variables
-vim.g.have_nerd_font = true  -- Flag for plugins to use icons
-vim.g.loaded_netrw = 1       -- Disables netrw
-vim.g.loaded_netrwPlugin = 1 -- Disables netrw
+vim.g.have_nerd_font = true -- Flag for plugins to use icons
 
 -- SECTION 1: Interface & UI
 opt.timeoutlen = 10000    -- Gives me more time to press keys
