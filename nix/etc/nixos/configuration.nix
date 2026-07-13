@@ -1,4 +1,3 @@
-# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -113,6 +112,9 @@ fonts.packages = with pkgs; [
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
+      tree-sitter
+      lua-language-server
+      clang-tools
       thunderbird
       zsh
       zsh-vi-mode
@@ -125,8 +127,6 @@ fonts.packages = with pkgs; [
       zathura
       btop
       nodejs
-      tree-sitter
-      lua-language-server
       (texlive.combine { inherit (texlive) scheme-small latexmk amsmath biber; })
     ];
   };
@@ -151,7 +151,6 @@ fonts.packages = with pkgs; [
    zip
    unzip
    curl
-   clang-tools
    stdenv.cc
   ];
 
