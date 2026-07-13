@@ -5,6 +5,7 @@ local keymap = vim.keymap.set
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap('x', "<Tab>", "g_")
 keymap('n', "<leader>m", "m")
+keymap('n', "^", "0")
 keymap('i', "<C-c>", "<Esc>")
 keymap('t', "<C-w>", [[<C-\><C-n>]])
 keymap('i', "<C-l>", "<right>")
