@@ -14,7 +14,7 @@ vim.api.nvim_create_user_command("R",
 vim.api.nvim_create_user_command("C",
     function()
         local view = vim.fn.winsaveview()
-        vim.cmd([[g/print.+);/normal gcc]])
+        vim.cmd([[g/print.\+);/normal gcc]])
         vim.fn.winrestview(view)
     end, {}
 )

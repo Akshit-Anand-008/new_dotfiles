@@ -5,6 +5,8 @@ args = ["-l"]
 background = "#000000"
 [selection]
 save_to_clipboard = true
+[window]
+dynamic_padding = true
 
 [[keyboard.bindings]]
 key = "V"
@@ -15,7 +17,7 @@ key = "F11"
 action = "ToggleFullscreen"
 
 [font]
-size = 15
+size = 16
 [font.normal]
 family = "JetBrainsMono"
 style = "Regular"

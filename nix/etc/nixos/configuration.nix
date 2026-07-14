@@ -115,7 +115,9 @@ fonts.packages = with pkgs; [
       tree-sitter
       lua-language-server
       clang-tools
+      tealdeer
       thunderbird
+      bat
       zsh
       zsh-vi-mode
       starship

@@ -3,8 +3,10 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
+keymap({ 'n', 'x' }, "x", '"_x')
 keymap('x', "<Tab>", "g_")
 keymap('n', "<leader>m", "m")
+keymap('x', "<leader>p", '"_dP')
 keymap('n', "^", "0")
 keymap('i', "<C-c>", "<Esc>")
 keymap('t', "<C-w>", [[<C-\><C-n>]])
@@ -25,11 +27,6 @@ keymap({ 'n', 'x' }, "<C-k>", "gk")
 
 keymap('x', "<", "<gv")
 keymap('x', ">", ">gv")
-
-keymap('x', "<leader>p", '"_dP')
-keymap({ 'n', 'x' }, "<leader>c", '"_c')
-keymap({ 'n', 'x' }, "<leader>x", '"_x')
-keymap({ 'n', 'x' }, "<leader>d", '"_d')
 
 keymap('n', "<S-l>", vim.cmd.bnext)
 keymap('n', "<S-h>", vim.cmd.bprev)
