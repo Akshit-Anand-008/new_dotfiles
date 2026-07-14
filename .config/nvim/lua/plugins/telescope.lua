@@ -23,7 +23,7 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags)
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles)
 vim.keymap.set('n', '<leader>fm', builtin.marks)
-vim.keymap.set('n', 'S', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
 
 local resolve_path = function(char, len, file_dir, cwd)
     if char == "h" then

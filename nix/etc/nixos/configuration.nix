@@ -86,7 +86,7 @@ services.keyd = {
           capslock = "esc";
           leftalt = "leftcontrol";
           rightalt = "rightcontrol";
-	  "leftshift+leftmeta+f23" = "leftalt";
+          "leftshift+leftmeta+f23" = "leftalt";
         };
       };
     };
@@ -138,22 +138,22 @@ fonts.packages = with pkgs; [
   # programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
-   vim
-   wget
-   alacritty
-   git
-   fzf
-   fd
-   ripgrep
-   gnumake
-   cmake
-   gcc
-   gdb
-   gzip
-   zip
-   unzip
-   curl
-   stdenv.cc
+    vim
+    wget
+    alacritty
+    git
+    fzf
+    fd
+    ripgrep
+    gnumake
+    cmake
+    gcc
+    gdb
+    gzip
+    zip
+    unzip
+    curl
+    stdenv.cc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
