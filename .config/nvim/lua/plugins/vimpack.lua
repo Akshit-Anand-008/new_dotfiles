@@ -35,5 +35,6 @@ require "plugins.luasnip"
 require "plugins.vimwiki"
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "tex" },
+    once = true,
     callback = function() require "plugins.vimtex" end,
 })

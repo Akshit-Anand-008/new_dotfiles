@@ -111,23 +111,15 @@ fonts.packages = with pkgs; [
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      neovim
-      tree-sitter
-      lua-language-server
-      clang-tools
-      tealdeer
+      neovim tree-sitter
+      lua-language-server clang-tools
+      bat tealdeer eza
       thunderbird
-      bat
-      zsh
-      zsh-vi-mode
-      starship
-      taskwarrior3
-      nnn
-      eza
+      zsh zsh-vi-mode starship
+      taskwarrior3 nnn btop
       tmux
       stow
       zathura
-      btop
       nodejs
       (texlive.combine { inherit (texlive) scheme-small latexmk amsmath biber; })
     ];
@@ -142,16 +134,9 @@ fonts.packages = with pkgs; [
     wget
     alacritty
     git
-    fzf
-    fd
-    ripgrep
-    gnumake
-    cmake
-    gcc
-    gdb
-    gzip
-    zip
-    unzip
+    fzf fd ripgrep
+    gnumake cmake gcc gdb
+    gzip zip unzip
     curl
     stdenv.cc
   ];
