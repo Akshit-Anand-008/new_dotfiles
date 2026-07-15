@@ -1,6 +1,12 @@
 require("nightfox").setup({
+    options = { transparent = true, },
     palettes = { carbonfox = { bg1 = "#000000" } },
-    groups = { all = { CursorLine = { bg = "#121212" } } },
+    groups = {
+        all = {
+            -- CursorLine = { bg = "#121212" },
+            CursorLine = { bg = "NONE", style = "NONE" },
+        }
+    }
 })
 vim.cmd.colorscheme("carbonfox")
 
