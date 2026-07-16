@@ -10,7 +10,7 @@ prefer-no-csd
 input {
     keyboard {
         repeat-rate 25
-        repeat-delay 200
+        repeat-delay 250
         xkb {
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
@@ -270,6 +270,7 @@ layout {
 // See the binds section below for more spawn examples.
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "alacritty"
+spawn-at-startup "firefox"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

@@ -54,6 +54,7 @@
     pulse.enable = true;
   };
 
+console.keyMap = "/home/akshit/.config/custom.map";
 services.keyd = {
   enable = true;
   keyboards = {
@@ -109,18 +110,15 @@ fonts.packages = with pkgs; [
 
   environment.systemPackages = with pkgs; [
     vim
-    wget jq
+    wget jq curl
     alacritty quickshell
     git
     fzf fd ripgrep
     gnumake cmake gcc gdb
     gzip zip unzip
-    curl
     stdenv.cc
-    niri
-    noctalia-shell
-    xwayland-satellite
-    wayland-utils
+    niri noctalia-shell
+    xwayland-satellite wayland-utils wev
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
