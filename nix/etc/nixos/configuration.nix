@@ -18,9 +18,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_IN";
@@ -43,9 +40,10 @@
     variant = "";
   };
 
+  networking.networkmanager.enable = true;
   services.printing.enable = true;
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  services.power-profiles-daemon.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.upower.enable = true;
@@ -111,8 +109,8 @@ fonts.packages = with pkgs; [
 
   environment.systemPackages = with pkgs; [
     vim
-    wget
-    alacritty
+    wget jq
+    alacritty quickshell
     git
     fzf fd ripgrep
     gnumake cmake gcc gdb

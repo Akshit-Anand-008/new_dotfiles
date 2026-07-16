@@ -287,7 +287,7 @@ hotkey-overlay {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -348,19 +348,18 @@ window-rule {
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
-    // like wev.
-    //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-    // when running as a winit window.
-    //
     // Most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+    Mod+M repeat=false { focus-window-previous; }
+
     Mod+Shift+Slash { show-hotkey-overlay; } // mod+?
-    Mod+Return { spawn "alacritty"; }
+    Mod+Return repeat=false { spawn "alacritty"; }
     Mod+Space{ spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+B { spawn "firefox"; }
+    Mod+X { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
+    Mod+Shift+X { spawn "systemctl" "poweroff"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -392,9 +391,6 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
-    Mod+Q repeat=false { close-window; }
-
     Mod+H     { focus-column-left-or-last; }
     Mod+L     { focus-column-right-or-first; }
     Mod+J     { focus-window-or-workspace-down; }
@@ -412,12 +408,12 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+D              { focus-workspace-down; }
+    Mod+U              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Ctrl+D         { move-column-to-workspace-down; }
+    Mod+Ctrl+U         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -467,16 +463,17 @@ binds {
     // (empty) workspace.
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
-    Mod+1 { focus-column 1; }
-    Mod+2 { focus-column 2; }
-    Mod+3 { focus-column 3; }
-    Mod+4 { focus-column 4; }
-    Mod+5 { focus-column 5; }
-    Mod+6 { focus-column 6; }
-    Mod+7 { focus-column 7; }
-    Mod+8 { focus-column 8; }
-    Mod+9 { focus-column 9; }
+    // Mod+A { spawn "/home/akshit/.local/bin/niri-add"; }
+    Mod+Shift+A { spawn "alacritty" "-e" "nvim" "/home/akshit/.config/niri/harpoon.txt"; }
+    Mod+1 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
+    Mod+2 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
+    Mod+3 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
+    Mod+4 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
+    Mod+5 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
+    Mod+6 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
+    Mod+7 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
+    Mod+8 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
+    Mod+9 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
 
     Mod+Shift+1 { focus-workspace 1; }
     Mod+Shift+2 { focus-workspace 2; }
@@ -502,7 +499,6 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -530,7 +526,7 @@ binds {
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    Mod+M { maximize-window-to-edges; }
+    // Mod+M { maximize-window-to-edges; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -573,9 +569,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+S { screenshot; }
+    Mod+Shift+S { screenshot-window; }
+    Mod+Ctrl+S { screenshot-screen; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
@@ -588,9 +584,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
-
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
