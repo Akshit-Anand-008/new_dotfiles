@@ -353,14 +353,16 @@ binds {
     // `niri msg action do-something`.
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q repeat=false { spawn "/home/akshit/.local/bin/niri/close-all"; }
     Mod+M repeat=false { focus-window-previous; }
 
-    Mod+Shift+Slash { show-hotkey-overlay; } // mod+?
+    Mod+Shift+Slash repeat=false { show-hotkey-overlay; } // mod+?
     Mod+Return repeat=false { spawn "alacritty"; }
-    Mod+Space{ spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+B { spawn "firefox"; }
-    Mod+X { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
-    Mod+Shift+X { spawn "systemctl" "poweroff"; }
+    Mod+B repeat=false { spawn "firefox"; }
+    Mod+Space repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
+    Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -464,17 +466,17 @@ binds {
     // (empty) workspace.
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // Mod+A { spawn "/home/akshit/.local/bin/niri-add"; }
+    // Mod+A { spawn "/home/akshit/.local/bin/niri/add"; }
     Mod+Shift+A { spawn "alacritty" "-e" "nvim" "/home/akshit/.config/niri/harpoon.txt"; }
-    Mod+1 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
-    Mod+2 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
-    Mod+3 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
-    Mod+4 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
-    Mod+5 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
-    Mod+6 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
-    Mod+7 { spawn "/home/akshit/.local/bin/niri-jump" "1"; }
-    Mod+8 { spawn "/home/akshit/.local/bin/niri-jump" "2"; }
-    Mod+9 { spawn "/home/akshit/.local/bin/niri-jump" "3"; }
+    Mod+1 { spawn "/home/akshit/.local/bin/niri/jump" "1"; }
+    Mod+2 { spawn "/home/akshit/.local/bin/niri/jump" "2"; }
+    Mod+3 { spawn "/home/akshit/.local/bin/niri/jump" "3"; }
+    Mod+4 { spawn "/home/akshit/.local/bin/niri/jump" "1"; }
+    Mod+5 { spawn "/home/akshit/.local/bin/niri/jump" "2"; }
+    Mod+6 { spawn "/home/akshit/.local/bin/niri/jump" "3"; }
+    Mod+7 { spawn "/home/akshit/.local/bin/niri/jump" "1"; }
+    Mod+8 { spawn "/home/akshit/.local/bin/niri/jump" "2"; }
+    Mod+9 { spawn "/home/akshit/.local/bin/niri/jump" "3"; }
 
     Mod+Shift+1 { focus-workspace 1; }
     Mod+Shift+2 { focus-workspace 2; }

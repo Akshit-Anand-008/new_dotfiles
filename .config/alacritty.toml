@@ -20,14 +20,14 @@ action = "ToggleFullscreen"
 [font]
 size = 16
 [font.normal]
-family = "JetBrainsMono"
+family = "JetBrainsMono NerdFont"
 style = "Regular"
 [font.bold]
-family = "JetBrainsMono"
+family = "JetBrainsMono NerdFont"
 style = "Bold"
 [font.italic]
-family = "JetBrainsMono"
+family = "JetBrainsMono NerdFont"
 style = "Italic"
 [font.bold_italic]
-family = "JetBrainsMono"
+family = "JetBrainsMono NerdFont"
 style = "Bold Italic"

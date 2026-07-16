@@ -1,23 +1,19 @@
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      /etc/nixos/hardware-configuration.nix
     ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  nixpkgs.config.allowUnfree = true;
+  security.rtkit.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_IN";
@@ -33,57 +29,40 @@
     LC_TIME = "en_IN";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services = {
+    displayManager.ly.enable = true;
+    printing.enable = true;
+    power-profiles-daemon.enable = true;
+    pulseaudio.enable = false;
+    upower.enable = true;
+    logind.settings.Login = {
+      HandleLidSwitch = "ignore";
+      HandlePowerKey = "suspend";
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
-
-  networking.networkmanager.enable = true;
-  services.printing.enable = true;
-  hardware.bluetooth.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.upower.enable = true;
-  services.pipewire = {
+  services.keyd = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-console.keyMap = "/home/akshit/.config/custom.map";
-services.keyd = {
-  enable = true;
-  keyboards = {
-    default = {
-      ids = [ "*" ];
-      settings = {
-        main = {
-          capslock = "esc";
-          leftalt = "leftcontrol";
-          rightalt = "rightcontrol";
-          "leftshift+leftmeta+f23" = "leftalt";
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "esc";
+            leftalt = "leftcontrol";
+            rightalt = "rightcontrol";
+            "leftshift+leftmeta+f23" = "leftalt";
+          };
         };
       };
     };
   };
-};
-
-programs.zsh = {
-  enable = true;
-  interactiveShellInit = ''
-    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-  '';
-};
-
-fonts.packages = with pkgs; [
-  jetbrains-mono
-  nerd-fonts.jetbrains-mono
-];
-
+  
   users.users."akshit" = {
     isNormalUser = true;
     description = "Akshit_Anand";
@@ -104,48 +83,27 @@ fonts.packages = with pkgs; [
     ];
   };
 
-  programs.firefox.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  programs.niri.enable = true;
-
   environment.systemPackages = with pkgs; [
-    vim
+    vim git
     wget jq curl
-    alacritty quickshell
-    git
+    alacritty niri
+    quickshell noctalia-shell
     fzf fd ripgrep
-    gnumake cmake gcc gdb
+    gnumake cmake gcc gdb stdenv.cc
     gzip zip unzip
-    stdenv.cc
-    niri noctalia-shell
     xwayland-satellite wayland-utils wev
+    playerctl brightnessctl
   ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs = {
+    niri.enable = true;
+    firefox.enable = true;
+    zsh = {
+      enable = true;
+      interactiveShellInit = " source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh ";
+    };
+  };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
-
+  system.stateVersion = "26.05";
 }

@@ -6,6 +6,7 @@ keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap({ 'n', 'x' }, "x", '"_x')
 keymap('x', "<Tab>", "g_")
 keymap('x', "p", '"_dP')
+keymap('x', "<leader>p", 'p')
 keymap('n', "^", "0")
 keymap('i', "<C-c>", "<Esc>")
 keymap('t', "<C-w>", [[<C-\><C-n>]])
@@ -65,6 +66,6 @@ local templates = {
 }
 local function smart_print()
     local ft = vim.bo.filetype
-    return ("<C-g>u" .. templates[ft]) or ""
+    return templates[ft] and ("<C-g>u" .. templates[ft]) or ""
 end
 keymap('i', "<C-j>", smart_print, { expr = true })
