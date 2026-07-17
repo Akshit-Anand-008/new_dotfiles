@@ -74,7 +74,7 @@
       bat tealdeer eza
       thunderbird
       zsh zsh-vi-mode starship
-      taskwarrior3 nnn btop
+      taskwarrior3 btop
       tmux
       stow
       zathura
@@ -88,7 +88,7 @@
     wget jq curl
     alacritty niri
     quickshell noctalia-shell
-    fzf fd ripgrep
+    fzf fd ripgrep file
     gnumake cmake gcc gdb stdenv.cc
     gzip zip unzip
     xwayland-satellite wayland-utils wev
@@ -97,8 +97,8 @@
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   programs = {
-    niri.enable = true;
     firefox.enable = true;
+    niri.enable = true;
     zsh = {
       enable = true;
       interactiveShellInit = " source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh ";

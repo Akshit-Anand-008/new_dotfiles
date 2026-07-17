@@ -32,20 +32,6 @@ jot() {
     echo "- [$(date "+%Y-%m-%d %H:%M")]: $*" >> "$target"
 }
 
-n() {
-    if [ -n "$NNNLVL" ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config/nnn}/.lastd"
-    mkdir -p "$(dirname "$NNN_TMPFILE")"
-    command nnn -e "$@"
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
 fw() {
     local file
     file=$(fd --type file --search-path "$WIKI_PATH" | fzf)
@@ -74,19 +60,4 @@ dh() {
     local dir
     dir=$(fd --type directory --search-path "$HOME" | fzf)
     [[ -d "$dir" ]] && cd "$dir"
-}
-
-# Auto-activate Python venv
-load-venv() {
-    local venv_path
-        venv_path="${PWD:A}/.venv"
-    if [[ -d "$venv_path" ]]; then
-        if [[ "$VIRTUAL_ENV" != "$venv_path" ]]; then
-        source "$venv_path/bin/activate"
-        fi
-    elif [[ -n "$VIRTUAL_ENV" ]]; then
-        if [[ "${PWD:A}" != "${VIRTUAL_ENV:h:h}"* ]]; then
-            deactivate
-        fi
-    fi
 }
