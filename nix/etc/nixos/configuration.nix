@@ -92,7 +92,7 @@
     gnumake cmake gcc gdb stdenv.cc
     gzip zip unzip
     xwayland-satellite wayland-utils wev
-    playerctl brightnessctl
+    playerctl brightnessctl bibata-cursors
   ];
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
@@ -101,7 +101,7 @@
     niri.enable = true;
     zsh = {
       enable = true;
-      interactiveShellInit = " source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh ";
+      interactiveShellInit = "source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
     };
   };
 
