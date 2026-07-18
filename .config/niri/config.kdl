@@ -362,7 +362,7 @@ window-rule {
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
     open-maximized true
-    geometry-corner-radius 11
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
@@ -373,9 +373,11 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+Shift+Q repeat=false { spawn "/home/akshit/.local/bin/niri/close-all"; }
     Mod+M repeat=false { focus-window-previous; }
-    Mod+T { toggle-column-tabbed-display; }
+    Mod+N repeat=false { focus-window-previous; }
+    Mod+Shift+M repeat=false { maximize-window-to-edges; }
+    Mod+T repeat=false { toggle-column-tabbed-display; }
 
-    Mod+Shift+Slash repeat=false { show-hotkey-overlay; } // mod+?
+    Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
     Mod+Return repeat=false { spawn "alacritty"; }
     Mod+B repeat=false { spawn "firefox"; }
     Mod+Space repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
@@ -383,7 +385,6 @@ binds {
     Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
 
-    // My keybinds
     Mod+H       { focus-column-left-or-last; }
     Mod+L       { focus-column-right-or-first; }
     Mod+J       { focus-window-or-workspace-down; }
@@ -397,33 +398,49 @@ binds {
 
     Mod+Left       { move-column-left; }
     Mod+Right      { move-column-right; }
-    Mod+Down       { move-window-down-or-to-workspace-down; }
-    Mod+Up         { move-window-up-or-to-workspace-up; }
-    // Mod+Down       { move-window-down; }
-    // Mod+Up         { move-window-up; }
+    // Mod+Down       { move-window-down-or-to-workspace-down; }
+    // Mod+Up         { move-window-up-or-to-workspace-up; }
+    Mod+Down       { move-window-down; }
+    Mod+Up         { move-window-up; }
     Mod+Shift+Down { move-window-to-workspace-down; }
     Mod+Shift+Up   { move-window-to-workspace-up; }
+
+    Mod+Shift+Right  { move-workspace-down; }
+    Mod+Shift+Left   { move-workspace-up; }
 
     Mod+Home      { focus-column-first; }
     Mod+End       { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Ctrl+Down  { move-workspace-down; }
-    Mod+Ctrl+Up    { move-workspace-up; }
-
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-column-width-back; }
-    Mod+Ctrl+R { expand-column-to-available-width; }
     Mod+E { switch-preset-window-height; }
     Mod+Shift+E { reset-window-height; }
 
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
 
-    // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+S { screenshot; }
+    Mod+Shift+S { screenshot-window; }
+    Print { screenshot-screen; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    // Consume-or-expel one window from the right to the bottom of the focused column.
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -538,19 +555,11 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
 
     // While maximize-column leaves gaps and borders around the window,
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    // Mod+M { maximize-window-to-edges; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -558,7 +567,7 @@ binds {
     Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
-    Mod+Ctrl+C { center-visible-columns; }
+    Mod+Shift+C { center-visible-columns; }
 
     // Finer width adjustments.
     // This command can also:
@@ -568,12 +577,6 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
-
-    // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -582,10 +585,6 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
-    Mod+S { screenshot; }
-    Mod+Shift+S { screenshot-window; }
-    Print { screenshot-screen; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
