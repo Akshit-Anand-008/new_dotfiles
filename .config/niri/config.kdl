@@ -413,14 +413,15 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+R { switch-preset-column-width; }
+    Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-column-width-back; }
-    Mod+E { switch-preset-window-height; }
-    Mod+Shift+E { reset-window-height; }
+    Mod+E       { switch-preset-window-height; }
+    Mod+Shift+E { switch-preset-window-height-back; }
+    Mod+Ctrl+E  { reset-window-height; }
 
-    Mod+F { maximize-column; }
+    Mod+F       { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
 
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
