@@ -9,7 +9,7 @@
 prefer-no-csd
 input {
     keyboard {
-        repeat-rate 25
+        repeat-rate 30
         repeat-delay 250
         xkb {
             // You can set rules, model, layout, variant and options.
@@ -385,10 +385,10 @@ binds {
     Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
 
-    Mod+H       { focus-column-left-or-last; }
-    Mod+L       { focus-column-right-or-first; }
-    Mod+J       { focus-window-or-workspace-down; }
-    Mod+K       { focus-window-or-workspace-up; }
+    Mod+H { focus-column-left-or-last; }
+    Mod+L { focus-column-right-or-first; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
     // Mod+J       { focus-window-down; }
     // Mod+K       { focus-window-up; }
     Mod+Shift+J { focus-workspace-down; }
@@ -396,10 +396,10 @@ binds {
     Mod+D { focus-workspace-down; }
     Mod+U { focus-workspace-up; }
 
-    Mod+Left       { move-column-left; }
-    Mod+Right      { move-column-right; }
-    // Mod+Down       { move-window-down-or-to-workspace-down; }
-    // Mod+Up         { move-window-up-or-to-workspace-up; }
+    Mod+Left    { move-column-left; }
+    Mod+Right   { move-column-right; }
+    // Mod+Down    { move-window-down-or-to-workspace-down; }
+    // Mod+Up      { move-window-up-or-to-workspace-up; }
     Mod+Down       { move-window-down; }
     Mod+Up         { move-window-up; }
     Mod+Shift+Down { move-window-to-workspace-down; }
@@ -415,13 +415,13 @@ binds {
 
     Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-column-width-back; }
+    Mod+Ctrl+R  { expand-column-to-available-width; }
     Mod+E       { switch-preset-window-height; }
     Mod+Shift+E { switch-preset-window-height-back; }
     Mod+Ctrl+E  { reset-window-height; }
 
     Mod+F       { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F  { expand-column-to-available-width; }
 
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
