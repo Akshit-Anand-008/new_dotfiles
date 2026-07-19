@@ -12,7 +12,7 @@ void vprint(T& V) {
 
 template <typename T>
 void pprint(T& P) {
-    for (auto& i : P) { cout << i.first() << " " << i.second() << "\n"; }
+    for (auto& i : P) { cout << i.first << " " << i.second << "\n"; }
     cout << "\n";
 }
 

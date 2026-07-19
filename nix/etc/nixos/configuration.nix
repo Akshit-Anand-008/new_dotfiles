@@ -62,7 +62,7 @@
       };
     };
   };
-  
+
   users.users."akshit" = {
     isNormalUser = true;
     description = "Akshit_Anand";
@@ -79,7 +79,7 @@
       stow
       zathura
       nodejs
-      (texlive.combine { inherit (texlive) scheme-small latexmk amsmath biber; })
+      (texliveBasic.withPackages (ps: with ps;[latexmk]))
     ];
   };
 
