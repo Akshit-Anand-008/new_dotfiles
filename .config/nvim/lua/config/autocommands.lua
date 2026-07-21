@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("i", "<C-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "j", "gj", { buf = 0 })
         vim.keymap.set({ "n", "x" }, "k", "gk", { buf = 0 })
+        pcall(vim.keymap.del, "i", "[", { buf = 0 })
     end,
 })
 

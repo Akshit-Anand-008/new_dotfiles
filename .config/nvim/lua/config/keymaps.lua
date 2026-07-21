@@ -4,9 +4,6 @@ local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap({ 'n', 'x' }, "x", '"_x')
-keymap('x', "<Tab>", "g_")
-keymap('x', "p", '"_dP')
-keymap('x', "<leader>p", 'p')
 keymap('n', "^", "0")
 keymap('i', "<C-c>", "<Esc>")
 keymap('t', "<C-w>", [[<C-\><C-n>]])
@@ -15,12 +12,16 @@ keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.update()
 end)
+keymap({ 'o', 'x' }, "<CR>", "g_")
 keymap('n', "<CR>", function()
     return (vim.bo.buftype == "nofile") and "<CR>" or "o<Esc>"
 end, { expr = true })
 
 keymap('n', "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 keymap('x', "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
+
+keymap('x', "p", '"_dP')
+keymap('x', "<leader>p", 'p')
 
 keymap({ 'n', 'x' }, "<C-j>", "gj")
 keymap({ 'n', 'x' }, "<C-k>", "gk")
