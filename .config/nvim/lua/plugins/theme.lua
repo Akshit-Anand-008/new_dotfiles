@@ -1,29 +1,17 @@
-require("nightfox").setup({
-    options = { transparent = true, },
-    palettes = { carbonfox = { bg1 = "#000000" } },
+require('nightfox').setup({
+    options = { transparent = true },
     groups = {
         all = {
-            -- CursorLine = { bg = "#121212" },
-            CursorLine = { bg = "NONE", style = "NONE" },
+            CursorLine = { bg = "NONE" },
+            TelescopeSelection = { bg = "palette.sel0" },
+            TelescopeSelectionCaret = { bg = "palette.sel0" },
         }
     }
 })
 vim.cmd.colorscheme("carbonfox")
 
--- {
---     "folke/tokyonight.nvim",
---     opts = { style = "night" },
---     init = function() vim.cmd.colorscheme("tokyonight") end,
--- },
-
--- {
---     "ellisonleao/gruvbox.nvim",
---     init = function() vim.cmd.colorscheme("gruvbox") end
--- },
-
--- {
---     "catppuccin/nvim",
---     name = "catppuccin",
---     opts = { flavour = "mocha" },
---     init = function() vim.cmd.colorscheme("catppuccin") end,
--- },
+-- require("tokyonight").setup({
+--     transparent = true,
+--     on_highlights = function(hl, c) hl.CursorLine = { bg = "NONE" } end
+-- })
+-- vim.cmd.colorscheme("tokyonight-storm")

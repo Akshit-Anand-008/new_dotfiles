@@ -372,9 +372,9 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
     Mod+Shift+Q repeat=false { spawn "/home/akshit/.local/bin/niri/close-all"; }
-    Mod+M repeat=false { focus-window-previous; }
+    // Mod+M repeat=false { focus-window-previous; }
     Mod+N repeat=false { focus-window-previous; }
-    Mod+Shift+M repeat=false { maximize-window-to-edges; }
+    Mod+M repeat=false { maximize-window-to-edges; }
     Mod+T repeat=false { toggle-column-tabbed-display; }
 
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
@@ -424,8 +424,8 @@ binds {
     Mod+F       { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+V { toggle-window-floating; }
+    Mod+V       { switch-focus-between-floating-and-tiling; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }

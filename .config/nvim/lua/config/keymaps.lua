@@ -41,14 +41,14 @@ keymap('n', "<leader>c", function()
     if vim.fn.getqflist({ winid = 0 }).winid > 0 then vim.cmd.cclose() else vim.cmd.copen() end
 end, { desc = "Toggle Quickfix Window" })
 
-for _, gd in ipairs({ 'i', 'a' }) do
-    keymap('x', gd .. '}', "<Esc>/{<CR>v" .. gd .. "{", { silent = true })
-    keymap('x', gd .. ')', "<Esc>/(<CR>v" .. gd .. "(", { silent = true })
-    for _, op in ipairs({ 'y', 'c', 'd' }) do
-        keymap('n', op .. gd .. '}', '/{<CR>' .. op .. gd .. '{', { silent = true })
-        keymap('n', op .. gd .. ')', '/(<CR>' .. op .. gd .. '(', { silent = true })
-    end
-end
+-- for _, gd in ipairs({ 'i', 'a' }) do
+--     keymap('x', gd .. '}', "<Esc>/{<CR>v" .. gd .. "{", { silent = true })
+--     keymap('x', gd .. ')', "<Esc>/(<CR>v" .. gd .. "(", { silent = true })
+--     for _, op in ipairs({ 'y', 'c', 'd' }) do
+--         keymap('n', op .. gd .. '}', '/{<CR>' .. op .. gd .. '{', { silent = true })
+--         keymap('n', op .. gd .. ')', '/(<CR>' .. op .. gd .. '(', { silent = true })
+--     end
+-- end
 
 -- Smart print
 local templates = {

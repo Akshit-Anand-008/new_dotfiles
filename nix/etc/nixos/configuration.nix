@@ -13,6 +13,7 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
   hardware.bluetooth.enable = true;
   time.timeZone = "Asia/Kolkata";
 
@@ -92,7 +93,9 @@
     gnumake cmake gcc gdb stdenv.cc
     gzip zip unzip
     xwayland-satellite wayland-utils wev
-    playerctl brightnessctl bibata-cursors
+    playerctl brightnessctl
+    bibata-cursors
+    mpv
   ];
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
