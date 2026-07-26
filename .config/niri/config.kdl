@@ -381,8 +381,12 @@ binds {
     Mod+Return repeat=false { spawn "alacritty"; }
     Mod+W repeat=false { spawn "firefox"; }
     Mod+Space repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+C repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
-    Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "lock"; }
+    Mod+Shift+I repeat=false { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+
+    Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    // Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
 
     Mod+H { focus-column-left-or-last; }
@@ -446,8 +450,6 @@ binds {
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-    // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -517,18 +519,6 @@ binds {
     // (empty) workspace.
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    Mod+A { spawn "/home/akshit/.local/bin/niri/add"; }
-    Mod+Shift+A { spawn "alacritty" "-e" "nvim" "/home/akshit/.config/niri/harpoon.txt"; }
-    Alt+1 { spawn "/home/akshit/.local/bin/niri/jump" "1"; }
-    Alt+2 { spawn "/home/akshit/.local/bin/niri/jump" "2"; }
-    Alt+3 { spawn "/home/akshit/.local/bin/niri/jump" "3"; }
-    Alt+4 { spawn "/home/akshit/.local/bin/niri/jump" "4"; }
-    Alt+5 { spawn "/home/akshit/.local/bin/niri/jump" "5"; }
-    Alt+6 { spawn "/home/akshit/.local/bin/niri/jump" "6"; }
-    Alt+7 { spawn "/home/akshit/.local/bin/niri/jump" "7"; }
-    Alt+8 { spawn "/home/akshit/.local/bin/niri/jump" "8"; }
-    Alt+9 { spawn "/home/akshit/.local/bin/niri/jump" "9"; }
-
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -566,10 +556,10 @@ binds {
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
 
-    Mod+C { center-column; }
+    // Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
-    Mod+Shift+C { center-visible-columns; }
+    // Mod+Shift+C { center-visible-columns; }
 
     // Finer width adjustments.
     // This command can also:

@@ -1,3 +1,0 @@
-Alacritty
-firefox
-org.pwmt.zathura
