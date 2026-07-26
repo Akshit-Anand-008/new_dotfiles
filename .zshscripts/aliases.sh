@@ -3,7 +3,7 @@
 # --- ALIASES ---
 
 # --- FILE SYSTEM ---
-alias ls='eza --group-directories-first --color=automatic --no-quotes --icons'
+alias ls='eza --group-directories-first --color=auto --no-quotes --icons'
 alias l='eza -h1 --group-directories-first --icons'
 alias ll='eza -lh --group-directories-first --grid --git --icons'
 alias la='eza -ah1 --group-directories-first --icons'

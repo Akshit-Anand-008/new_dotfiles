@@ -20,9 +20,9 @@ vim.pack.add({
     'https://github.com/L3MON4D3/LuaSnip',
 })
 
-require "plugins.theme"
 require "nvim-autopairs".setup({})
 require "ibl".setup({ indent = { char = "▏" } })
+require "plugins.theme"
 require "plugins.surround"
 require "plugins.auto-sessions"
 require "plugins.coderunner"
@@ -33,8 +33,4 @@ require "plugins.lualine"
 require "plugins.telescope"
 require "plugins.luasnip"
 require "plugins.vimwiki"
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "tex" },
-    once = true,
-    callback = function() require "plugins.vimtex" end,
-})
+require "plugins.vimtex"

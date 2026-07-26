@@ -17,8 +17,8 @@ keymap('n', "<CR>", function()
     return (vim.bo.buftype == "nofile") and "<CR>" or "o<Esc>"
 end, { expr = true })
 
-keymap('n', "R", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
-keymap('x', "R", [[y:%s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
+keymap('n', "R", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+keymap('x', "R", [[y:s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
 
 keymap('x', "p", '"_dP')
 keymap('x', "<leader>p", 'p')
