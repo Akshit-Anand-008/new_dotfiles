@@ -371,22 +371,21 @@ binds {
     // `niri msg action do-something`.
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
-    Mod+Shift+Q repeat=false { spawn "/home/akshit/.local/bin/niri/close-all"; }
-    // Mod+M repeat=false { focus-window-previous; }
     Mod+N repeat=false { focus-window-previous; }
     Mod+M repeat=false { maximize-window-to-edges; }
     Mod+T repeat=false { toggle-column-tabbed-display; }
-
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
+
     Mod+Return repeat=false { spawn "alacritty"; }
     Mod+W repeat=false { spawn "firefox"; }
-    Mod+Space repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+C repeat=false { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
-    Mod+Shift+I repeat=false { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
 
-    Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    // Mod+X repeat=false { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+Space repeat=false   { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+C repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+Shift+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+I repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+
+    Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    // Mod+X repeat=false    { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
 
     Mod+H { focus-column-left-or-last; }
@@ -413,10 +412,10 @@ binds {
     Mod+Shift+Right  { move-workspace-down; }
     Mod+Shift+Left   { move-workspace-up; }
 
-    Mod+Home      { focus-column-first; }
-    Mod+End       { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Home       { focus-column-first; }
+    Mod+End        { focus-column-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
 
     Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-column-width-back; }
