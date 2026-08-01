@@ -16,8 +16,8 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 # -- UTILITIES --
-alias build='sudo nixos-rebuild switch'
-alias configure='nvim ~/Dotfiles/nix/etc/nixos/configuration.nix'
+alias build='sudo nixos-rebuild switch --impure --flake'
+alias configure='nvim ~/nix-config-files/home.nix'
 alias q='exit'
 alias v='nvim'
 alias c='clear'

@@ -1,6 +1,3 @@
--- Global Variablesoptio
-vim.g.have_nerd_font = true -- Flag for plugins to use icons
-
 -- SECTION 1: Interface & UI
 vim.opt.timeoutlen = 10000    -- Gives me more time to press keys
 vim.opt.scrolloff = 3         -- Keep lines of context when scrolling

@@ -372,17 +372,17 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
     Mod+N repeat=false { focus-window-previous; }
-    Mod+M repeat=false { maximize-window-to-edges; }
     Mod+T repeat=false { toggle-column-tabbed-display; }
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
     Mod+Return repeat=false { spawn "alacritty"; }
-    Mod+W repeat=false { spawn "firefox"; }
+    Mod+B repeat=false { spawn "firefox"; }
 
     Mod+Space repeat=false   { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+C repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+Shift+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+W repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
     Mod+I repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+    Mod+Shift+I repeat=false { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
     Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     // Mod+X repeat=false    { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
@@ -424,11 +424,13 @@ binds {
     Mod+Shift+E { switch-preset-window-height-back; }
     Mod+Ctrl+E  { reset-window-height; }
 
-    Mod+F       { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+M repeat=false { maximize-window-to-edges; }
+    Mod+Shift+M repeat=false { fullscreen-window; }
 
     Mod+Shift+V { toggle-window-floating; }
     Mod+V       { switch-focus-between-floating-and-tiling; }
+
+    Mod+F       { maximize-column; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }

@@ -8,12 +8,17 @@ require('code_runner').setup({
         tex = "cd $dir && pdflatex $fileName",
         lua = "cd $dir && lua $fileName",
         go = "cd $dir && go run $fileName",
+        -- python = "cd $dir && python3 $fileName",
         -- rust = "cd $dir && cargo run",
         rust = "cd $dir && cargo run --bin $fileNameWithoutExt",
     }
 })
+-- vim.keymap.set("n", "<leader>r", function()
+--     vim.cmd.write()
+--     vim.cmd.RunCode()
+-- end)
 vim.keymap.set("n", "<leader>r", function()
     vim.cmd.write()
-    vim.cmd.RunCode()
-end)
+    require("code_runner").run_code()
+end, { desc = "Save and run code" })
 vim.keymap.set("n", "<leader>t", [[<leader>r<C-\><C-n>"api<CR><C-w><C-w>w]], { remap = true })
