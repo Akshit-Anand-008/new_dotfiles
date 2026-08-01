@@ -11,11 +11,11 @@ vim.lsp.config("lua-language-server", {
 })
 vim.lsp.enable("lua-language-server")
 
-vim.lsp.config("nil", {
-    cmd = { "nil" },
-    filetypes = { "nix" },
-})
-vim.lsp.enable("nil")
+-- vim.lsp.config("nil", {
+--     cmd = { "nil" },
+--     filetypes = { "nix" },
+-- })
+-- vim.lsp.enable("nil")
 
 local notify_handler = vim.lsp.handlers["textDocument/publishDiagnostics"]
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
