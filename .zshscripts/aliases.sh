@@ -16,7 +16,8 @@ alias ....='cd ../../..'
 alias -- -='cd -'
 
 # -- UTILITIES --
-alias configure='nvim ~/nix-config-files/home.nix'
+alias nrs='sudo nixos-rebuild switch --impure --flake'
+alias nc='sudo nix-collect-garbage -d'
 alias q='exit'
 alias v='nvim'
 alias c='clear'

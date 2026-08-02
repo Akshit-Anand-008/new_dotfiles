@@ -61,3 +61,25 @@ dh() {
     dir=$(fd --type directory --search-path "$HOME" | fzf)
     [[ -d "$dir" ]] && cd "$dir"
 }
+
+newdh() {
+    local dir
+    dir=$(fd --type directory --search-path "$HOME" | fzf)
+    if [[ -n "$dir" ]]; then
+        LBUFFER="${LBUFFER}${(q)dir} "
+    fi
+    zle reset-prompt
+}
+zle -N newdh
+bindkey '^O' newdh
+
+newff() {
+    local file
+    file=$(fd --type file . | fzf)
+    if [[ -n "$file" ]]; then
+        LBUFFER="${LBUFFER}${(q)file} "
+    fi
+    zle reset-prompt
+}
+zle -N newff
+bindkey '^T' newff
