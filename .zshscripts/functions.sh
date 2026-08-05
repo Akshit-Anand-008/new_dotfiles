@@ -52,12 +52,6 @@ f() {
 
 d() {
     local dir
-    dir=$(fd --type directory | fzf)
-    [[ -d "$dir" ]] && cd "$dir"
-}
-
-dh() {
-    local dir
     dir=$(fd --type directory --search-path "$HOME" | fzf)
     [[ -d "$dir" ]] && cd "$dir"
 }
