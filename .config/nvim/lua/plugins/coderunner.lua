@@ -7,16 +7,9 @@ require('code_runner').setup({
         cpp = "cd $dir && g++ $fileName && ./a.out",
         tex = "cd $dir && pdflatex $fileName",
         lua = "cd $dir && lua $fileName",
-        go = "cd $dir && go run $fileName",
-        -- python = "cd $dir && python3 $fileName",
-        -- rust = "cd $dir && cargo run",
-        rust = "cd $dir && cargo run --bin $fileNameWithoutExt",
     }
 })
--- vim.keymap.set("n", "<leader>r", function()
---     vim.cmd.write()
---     vim.cmd.RunCode()
--- end)
+
 vim.keymap.set("n", "<leader>r", function()
     vim.cmd.write()
     require("code_runner").run_code()

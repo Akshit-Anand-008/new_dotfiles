@@ -11,7 +11,7 @@ news.version=3.4.2
 # Color theme (uncomment one to use)
 #include light-16.theme
 #include light-256.theme
-#include bubblegum-256.theme
+# include bubblegum-256.theme
 #include dark-16.theme
 #include dark-256.theme
 #include dark-red-256.theme
@@ -21,7 +21,7 @@ news.version=3.4.2
 #include dark-yellow-green.theme
 #include dark-gray-256.theme
 #include dark-gray-blue-256.theme
-#include solarized-dark-256.theme
+include solarized-dark-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
 #verbose=header,summary,affected,blank,edit,history
@@ -30,6 +30,3 @@ recurrence.confirmation=none
 
 nag=
 advice=off
-context.today=due.before:tomorrow or due:
-
-#context=today
