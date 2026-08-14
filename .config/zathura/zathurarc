@@ -1,0 +1,5 @@
+set recolor true
+set selection-clipboard "clipboard"
+set adjust-open "width"
+set render-loading false
+set selection-notification false
