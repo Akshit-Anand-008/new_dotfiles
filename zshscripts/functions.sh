@@ -38,16 +38,30 @@ fw() {
     [[ -f "$file" ]] && nvim "$file"
 }
 
+myopen(){
+    local file="$1"
+    local mime
+    mime=$(file -biL "$file")
+    case "$mime" in
+        *text*|*empty*|application/json|application/xml)
+            "${VISUAL:-nvim}" "$file"
+            ;;
+        *)
+            xdg-open "$file" &>/dev/null &
+            ;;
+    esac
+}
+
 fh() {
     local file
     file=$(fd --type file --search-path "$HOME" | fzf)
-    [[ -f "$file" ]] && nvim "$file"
+    [[ -f "$file" ]] && myopen "$file"
 }
 
 f() {
     local file
-    file=$(fd --type file | fzf)
-    [[ -f "$file" ]] && nvim "$file"
+    file=$(fd --type file | fzf) || return
+    [[ -f "$file" ]] && myopen "$file"
 }
 
 d() {

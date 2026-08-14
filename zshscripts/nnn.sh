@@ -2,7 +2,6 @@
 
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='f:fzopen;d:fzcd'
-# export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 export NNN_OPTS="eu"
 
 n() {
