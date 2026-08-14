@@ -366,19 +366,19 @@ window-rule {
 binds {
     // Most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
-    Mod+O repeat=false       { toggle-overview; }
-    Mod+T repeat=false       { toggle-column-tabbed-display; }
-    Mod+Q repeat=false       { close-window; }
+    Mod+O repeat=false  { toggle-overview; }
+    Mod+T repeat=false  { toggle-column-tabbed-display; }
+    Mod+Q repeat=false  { close-window; }
     Mod+Shift+Q repeat=false     { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
     Mod+Return repeat=false { spawn "alacritty"; }
     Mod+B repeat=false { spawn "firefox"; }
 
-    Mod+Space repeat=false   { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+C repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+W repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
-    Mod+I repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+    Mod+Space repeat=false  { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+C repeat=false      { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+W repeat=false      { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
+    Mod+I repeat=false      { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
 
     Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
