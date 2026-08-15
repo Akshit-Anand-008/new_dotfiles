@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufNewFile", {
     callback = function()
         local ext = vim.fn.expand("%:e")
-        local snippet = vim.fn.expand("~/.Templates/template." .. ext)
+        local snippet = vim.fn.expand("~/Templates/template." .. ext)
         if vim.fn.filereadable(snippet) == 1 then
             vim.cmd("0r " .. snippet)
             vim.cmd("normal! G")
