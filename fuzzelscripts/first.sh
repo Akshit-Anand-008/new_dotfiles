@@ -12,8 +12,11 @@ myopen(){
     esac
 }
 
+selectedwifi=$(nmcli -g NAME con show --active | grep -v '^lo$' | head -n 1)
+prompt_label="${selectedwifi:-Disconnected}"
+
 SELECTION=$(cat <<EOF | fuzzel -d
-WIFI
+WIFI [$prompt_label]
 Calculator
 FZF
 EOF
@@ -29,11 +32,13 @@ case "$SELECTION" in
     ans=$(fd -C "/home/akshit/" | fuzzel -d) || exit 0;
     myopen "$ans";;
 
-    "WIFI")
-    # newsel=$(nmcli -g NAME con show | fuzzel -d) || exit 0;
-    # nmcli connection up "$newsel";;
-    source ~/fuzzelscripts/wifi.sh;;
+    "WIFI [$prompt_label]")
+    if [[ $prompt_label = "Disconnected" ]]; then
+        nmcli radio wifi on
+    else
+        "$HOME/fuzzelscripts/wifi.sh" &
 
+    fi;;
     *)
     exit 0 ;;
 esac

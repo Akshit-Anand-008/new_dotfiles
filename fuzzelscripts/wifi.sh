@@ -4,7 +4,7 @@ selected=$(nmcli -g NAME con show --active | grep -v '^lo$' | head -n 1)
 prompt_label="${selected:-Disconnected}"
 newsel=$(nmcli -g NAME con show | fuzzel -d --prompt="[$prompt_label] ") || exit 0
 
-if [ "$newsel" = "$selected" ]; then
+if [[ "$newsel" = "$selected" ]]; then
     notify-send "Already connected to $newsel"
     exit 0
 fi
