@@ -23,6 +23,7 @@ alias v='nvim'
 alias c='clear'
 alias z='zathura'
 alias gdb='gdb --quiet'
+alias bc="bc --quiet"
 alias t='task'
 alias cat='bat'
 alias open='xdg-open'

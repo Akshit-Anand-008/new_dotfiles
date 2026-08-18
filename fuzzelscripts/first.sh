@@ -24,7 +24,7 @@ EOF
 
 case "$SELECTION" in
     "Calculator")
-    alacritty -e bc -l;;
+    alacritty -e bc -ql;;
     # ans=$(fuzzel -d | bc -l) || exit 0;
     # notify-send "$ans";;
 
