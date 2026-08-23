@@ -4,12 +4,10 @@ local keymap = vim.keymap.set
 
 keymap({ 'n', 'x' }, "<Space>", "<Nop>")
 keymap({ 'n', 'x' }, "x", '"_x')
-keymap('i', "<C-c>", "<Esc>")
-keymap('t', "<C-w>", [[<C-\><C-n>]])
 keymap('i', "<C-l>", "<right>")
 keymap('n', "<Esc>", function()
     vim.cmd.nohlsearch()
-    vim.cmd.write()
+    vim.cmd.update()
 end)
 
 keymap({ 'o', 'x' }, "<CR>", "g_")
@@ -22,6 +20,12 @@ keymap('x', "R", [[y:s/\V<C-R>=escape(@", '/\')<CR>//gI<Left><Left><Left>]])
 
 keymap({ 'n', 'x' }, "<C-j>", "gj")
 keymap({ 'n', 'x' }, "<C-k>", "gk")
+
+keymap({ 'n', 'x', 'o' }, '^', '0')
+keymap({ 'n', 'x', 'o' }, '_', '^')
+
+keymap('i', "<C-c>", "<Esc>")
+keymap('t', "<C-w>", [[<C-\><C-n>]])
 
 keymap('x', "<", "<gv")
 keymap('x', ">", ">gv")

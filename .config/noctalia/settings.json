@@ -63,7 +63,7 @@
         ],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
-        "outerCorners": true,
+        "outerCorners": false,
         "position": "top",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
@@ -71,7 +71,7 @@
         "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
-        "showCapsule": true,
+        "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": false,
@@ -151,7 +151,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "icon-always",
+                    "displayMode": "icon-hover",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",

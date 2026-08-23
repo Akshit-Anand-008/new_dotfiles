@@ -12,7 +12,7 @@ vim.opt.showmode = false      -- Hide mode text
 vim.opt.signcolumn = "yes"    -- Always show the column for icons/errors
 vim.opt.virtualedit = "block" -- Allows cursor to move anywhere in V-Block mode
 vim.opt.mouse = ""            -- Disable mouse
--- opt.textwidth = 120
+vim.opt.textwidth = 0
 
 -- SECTION 2: Indentation & Tabs
 vim.opt.expandtab = true   -- Use spaces instead of tabs

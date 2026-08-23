@@ -4,8 +4,7 @@ input {
     keyboard {
         repeat-rate 30
         repeat-delay 250
-        xkb {
-        }
+        xkb {}
         numlock
     }
     touchpad {

@@ -12,7 +12,7 @@ PointerAlignment: Left
 SortIncludes: true
 SpaceBeforeParens: ControlStatements
 Cpp11BracedListStyle: true
-AlignEscapedNewlines: Left
+# AlignEscapedNewlines: Left
 AccessModifierOffset: -4
 Standard: Latest
 ---
