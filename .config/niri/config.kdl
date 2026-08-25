@@ -92,7 +92,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 binds {
     Mod+O repeat=false  { toggle-overview; }
-    Mod+T repeat=false  { toggle-column-tabbed-display; }
     Mod+Q repeat=false  { close-window; }
     Mod+Shift+Q repeat=false     { power-off-monitors; }
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
@@ -104,7 +103,7 @@ binds {
     Mod+C repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+W repeat=false       { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
     Mod+N repeat=false       { spawn-sh "/home/akshit/fuzzelscripts/first.sh"; }
-    Mod+I repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
+    Mod+P repeat=false       { spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; }
 
     Mod+X repeat=false       { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
     Mod+Shift+X repeat=false { spawn "systemctl" "poweroff"; }
@@ -158,15 +157,16 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    Mod+S { screenshot; }
+    Mod+S       { screenshot; }
     Mod+Shift+S { screenshot-window; }
-    Print { screenshot-screen; }
+    Print       { screenshot-screen; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Semicolon    { toggle-column-tabbed-display; }
+    Mod+Comma        { consume-window-into-column; }
+    Mod+Period       { expel-window-from-column; }
 
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
