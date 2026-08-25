@@ -37,8 +37,7 @@ ls.add_snippets(
             )
         ),
 
-        s(
-            "p",
+        s("p",
             fmt(
                 [[printf("{}\n"{});]],
                 { i(1), i(0) }

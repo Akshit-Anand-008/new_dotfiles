@@ -49,7 +49,7 @@
         "contentPadding": 2,
         "density": "default",
         "displayMode": "always_visible",
-        "enableExclusionZoneInset": true,
+        "enableExclusionZoneInset": false,
         "fontScale": 1,
         "frameRadius": 12,
         "frameThickness": 8,
@@ -151,7 +151,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "icon-hover",
+                    "displayMode": "graphic-clean",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
