@@ -1,9 +1,9 @@
-vim.lsp.config("clangd", {
-    cmd = { "clangd" },
-    filetypes = { "c", "cpp" }
-})
-vim.lsp.enable("clangd")
-
+-- vim.lsp.config("clangd", {
+--     cmd = { "clangd" },
+--     filetypes = { "c", "cpp" }
+-- })
+-- vim.lsp.enable("clangd")
+--
 vim.lsp.config("lua-language-server", {
     cmd = { "lua-language-server" },
     settings = { Lua = { diagnostics = { globals = { "vim" } } } },

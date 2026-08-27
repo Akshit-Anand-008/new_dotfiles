@@ -18,6 +18,7 @@ alias -- -='cd -'
 # -- UTILITIES --
 alias nrs='sudo nixos-rebuild switch --impure --flake'
 alias nc='sudo nix-collect-garbage -d'
+alias cl='clear && task'
 alias q='exit'
 alias v='nvim'
 alias c='clear'
