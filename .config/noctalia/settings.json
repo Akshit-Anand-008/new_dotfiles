@@ -150,6 +150,12 @@
                     "textColor": "none"
                 },
                 {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultDuration": 0,
+                        "iconColor": "none",
+                        "textColor": "none"
+                    },
                     "id": "plugin:timer"
                 },
                 {
@@ -240,15 +246,15 @@
                     "id": "Bluetooth"
                 },
                 {
-                    "id": "WallpaperSelector"
+                    "id": "AirplaneMode"
                 },
                 {
-                    "id": "NoctaliaPerformance"
+                    "id": "Notifications"
                 }
             ],
             "right": [
                 {
-                    "id": "Notifications"
+                    "id": "NoctaliaPerformance"
                 },
                 {
                     "id": "PowerProfile"
@@ -482,7 +488,7 @@
     },
     "plugins": {
         "autoUpdate": false,
-        "notifyUpdates": true
+        "notifyUpdates": false
     },
     "sessionMenu": {
         "countdownDuration": 10000,

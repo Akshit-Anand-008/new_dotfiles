@@ -35,5 +35,6 @@ source ~/zshscripts/init.sh
 autoload -U add-zsh-hook
 autoload -Uz compinit
 compinit
+
 # eval "$(starship init zsh)"
 task
