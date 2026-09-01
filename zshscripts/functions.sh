@@ -90,4 +90,11 @@ newff() {
     zle reset-prompt
 }
 zle -N newff
-bindkey '^T' newff
+bindkey '^F' newff
+
+my_zvm_bindkeys() {
+    zvm_bindkey viins '^O' newdh
+    zvm_bindkey viins '^F' newff
+}
+zvm_after_init_commands+=(my_zvm_bindkeys)
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
