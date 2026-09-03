@@ -1,3 +1,6 @@
+syntax enable
+set hidden
+
 set relativenumber
 set shiftwidth=4
 set softtabstop=4

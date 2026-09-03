@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='f:fzopen;d:fzcd'
 export NNN_OPTS="Aeu"

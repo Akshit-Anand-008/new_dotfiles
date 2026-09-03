@@ -37,7 +37,7 @@ alias mkdir='mkdir -pv'
 alias szsh='source ~/.zshrc'
 alias czsh='nvim ~/.zshrc'
 alias cnvim='cd ~/.config/nvim/lua/'
-alias csvenv='python -m venv .venv && source .venv/bin/activate'
+# alias csvenv='python -m venv .venv && source .venv/bin/activate'
 alias id="nvim $WIKI_PATH/index.md"
 alias td="nvim $WIKI_PATH/diary/diary.md -c VimwikiMakeDiaryNote"
 

@@ -87,7 +87,7 @@ window-rule {
 }
 
 spawn-at-startup "noctalia-shell"
-spawn-at-startup "foot"
+spawn-at-startup "alacritty"
 screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 binds {
@@ -96,7 +96,7 @@ binds {
     Mod+Shift+Q repeat=false     { power-off-monitors; }
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
-    Mod+Return repeat=false  { spawn "foot"; }
+    Mod+Return repeat=false  { spawn "alacritty"; }
     Mod+B repeat=false       { spawn "firefox"; }
 
     Mod+Space repeat=false   { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }

@@ -30,7 +30,7 @@ setopt HIST_REDUCE_BLANKS
 # fi
 
 # calling zsh scripts
-source ~/zshscripts/init.sh
+source ~/shellscripts/init.sh
 
 autoload -U add-zsh-hook
 autoload -Uz compinit

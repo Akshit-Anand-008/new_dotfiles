@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # --- FUNCTIONS ---
 ex() {
   if [ -f "$1" ] ; then
@@ -23,7 +21,9 @@ ex() {
   fi
 }
 
-mkcd() { mkdir -p "$1" && cd "$1" }
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
 
 jot() {
     local target
@@ -76,10 +76,10 @@ newdh() {
     if [[ -n "$dir" ]]; then
         LBUFFER="${LBUFFER}${(q)dir} "
     fi
-    zle reset-prompt
+    # zle reset-prompt
 }
-zle -N newdh
-bindkey '^O' newdh
+# zle -N newdh
+# bindkey '^O' newdh
 
 newff() {
     local file
@@ -87,12 +87,14 @@ newff() {
     if [[ -n "$file" ]]; then
         LBUFFER="${LBUFFER}${(q)file} "
     fi
-    zle reset-prompt
+    # zle reset-prompt
 }
-zle -N newff
-bindkey '^F' newff
+# zle -N newff
+# bindkey '^F' newff
 
 my_zvm_bindkeys() {
+    zvm_define_widget newdh
+    zvm_define_widget newff
     zvm_bindkey viins '^O' newdh
     zvm_bindkey viins '^F' newff
 }
