@@ -5,8 +5,8 @@ require('code_runner').setup({
     term = { position = "vertical", size = 40 },
     filetype = {
         cpp = "cd $dir && g++ $fileName && ./a.out",
-        tex = "cd $dir && pdflatex $fileName",
-        lua = "cd $dir && lua $fileName",
+        -- tex = "cd $dir && pdflatex $fileName",
+        -- lua = "cd $dir && lua $fileName",
     }
 })
 
