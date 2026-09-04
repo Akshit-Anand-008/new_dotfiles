@@ -1,5 +1,4 @@
 format = """$hostname$directory$git_branch$git_commit$git_status$character"""
-# format = """$hostname$directory$git_branch$git_commit$character"""
 add_newline = true
 
 [hostname]
@@ -23,7 +22,3 @@ format = '[\($hash\)]($style)'
 [git_status]
 style = "red"
 format = '([\[$all_status$ahead_behind\]]($style))'
-
-[character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
