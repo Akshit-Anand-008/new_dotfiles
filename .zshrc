@@ -20,6 +20,7 @@ export PS1=$'\n%B%U%F{yellow}%~/%f%u%b '
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
@@ -29,7 +30,6 @@ setopt HIST_REDUCE_BLANKS
 #     tmux attach-session || tmux new-session
 # fi
 
-# calling zsh scripts
 source ~/shellscripts/init.sh
 
 autoload -U add-zsh-hook

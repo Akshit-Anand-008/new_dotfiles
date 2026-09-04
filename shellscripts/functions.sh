@@ -70,33 +70,15 @@ d() {
     [[ -d "$dir" ]] && cd "$dir"
 }
 
-newdh() {
-    local dir
-    dir=$(fd --type directory --search-path "$HOME" | fzf)
-    if [[ -n "$dir" ]]; then
-        LBUFFER="${LBUFFER}${(q)dir} "
-    fi
-    # zle reset-prompt
+ctrlf(){
+    local arg
+    arg=$(fd -d 1 | fzf)
+    [[ -e "$arg" ]] && LBUFFER="${LBUFFER}${(q)arg} "
 }
-# zle -N newdh
-# bindkey '^O' newdh
-
-newff() {
-    local file
-    file=$(fd --type file . | fzf)
-    if [[ -n "$file" ]]; then
-        LBUFFER="${LBUFFER}${(q)file} "
-    fi
-    # zle reset-prompt
-}
-# zle -N newff
-# bindkey '^F' newff
 
 my_zvm_bindkeys() {
-    zvm_define_widget newdh
-    zvm_define_widget newff
-    zvm_bindkey viins '^O' newdh
-    zvm_bindkey viins '^F' newff
+    zvm_define_widget ctrlf
+    zvm_bindkey viins '^F' ctrlf
 }
 zvm_after_init_commands+=(my_zvm_bindkeys)
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
